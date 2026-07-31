@@ -10,6 +10,9 @@ markdown: kramdown
 # 文章永久链接格式
 permalink: /:title/
 
+# 允许发布未来日期的文章
+future: true
+
 # 时区
 timezone: Asia/Shanghai
 
