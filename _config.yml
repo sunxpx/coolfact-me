@@ -4,9 +4,6 @@ url: "https://coolfact.me"
 author: "冷知识漫游笔记"
 lang: zh-Hans
 
-# GitHub Pages 主题
-theme: minima
-
 # Markdown 引擎
 markdown: kramdown
 
