@@ -1,0 +1,30 @@
+title: "冷知识漫游笔记"
+description: "一个给孩子收集世界冷知识的好奇爸爸。每条内容，都以「我要讲给 Ta 听」的标准筛选。"
+url: "https://coolfact.me"
+author: "冷知识漫游笔记"
+lang: zh-Hans
+
+# GitHub Pages 主题
+theme: minima
+
+# Markdown 引擎
+markdown: kramdown
+
+# 文章永久链接格式
+permalink: /:title/
+
+# 时区
+timezone: Asia/Shanghai
+
+# 分类和标签
+collections:
+  posts:
+    permalink: /:title/
+    output: true
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post

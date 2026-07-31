@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title }} — 冷知识漫游笔记</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%231a1a1a'/%3E%3Cpath d='M50 20c-11 0-20 8.5-20 19 0 6.5 3.2 12 8 15.5V62c0 2 1.5 3.5 3.5 3.5h17c2 0 3.5-1.5 3.5-3.5v-7.5c4.8-3.5 8-9 8-15.5 0-10.5-9-19-20-19z' fill='none' stroke='%23f5a623' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cline x1='37' y1='70' x2='63' y2='70' stroke='%23f5a623' stroke-width='3' stroke-linecap='round'/%3E%3Cline x1='42' y1='76' x2='58' y2='76' stroke='%23f5a623' stroke-width='3' stroke-linecap='round'/%3E%3Cpath d='M50 20v4M35 24l3.5 3M65 24l-3.5 3M30 39h4M66 39h-4' stroke='%23f5a623' stroke-width='2.5' stroke-linecap='round'/%3E%3C/svg%3E">
+    <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | strip_newlines | truncate: 160 }}">
+    <meta property="og:title" content="{{ page.title }} — 冷知识漫游笔记">
+    <meta property="og:description" content="{{ page.excerpt | default: site.description | strip_html | strip_newlines | truncate: 160 }}">
+    <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+    <meta property="og:type" content="article">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            background: #0f0f0f;
+            color: #e0e0e0;
+            min-height: 100vh;
+            line-height: 1.8;
+        }
+
+        .back-home {
+            position: fixed;
+            top: 20px;
+            left: 28px;
+            z-index: 10;
+            font-size: 13px;
+            color: #555;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .back-home:hover { color: #aaa; }
+
+        article {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 80px 28px 64px;
+        }
+
+        .post-date {
+            font-family: "SF Mono", "Cascadia Code", "Menlo", monospace;
+            font-size: 13px;
+            color: #555;
+            margin-bottom: 12px;
+        }
+
+        h1 {
+            font-size: 26px;
+            font-weight: 600;
+            color: #fff;
+            letter-spacing: 2px;
+            margin-bottom: 48px;
+            line-height: 1.4;
+        }
+
+        .content {
+            font-size: 16px;
+            color: #bbb;
+            line-height: 2;
+        }
+
+        .content p {
+            margin-bottom: 24px;
+        }
+
+        .content h2 {
+            font-size: 19px;
+            font-weight: 600;
+            color: #ddd;
+            margin: 48px 0 16px;
+        }
+
+        .content h3 {
+            font-size: 16px;
+            font-weight: 600;
+            color: #ccc;
+            margin: 32px 0 12px;
+        }
+
+        .content strong {
+            color: #ddd;
+            font-weight: 600;
+        }
+
+        .content em {
+            color: #ccc;
+            font-style: normal;
+            border-bottom: 1px dotted rgba(255,255,255,0.12);
+        }
+
+        .content ul, .content ol {
+            padding-left: 24px;
+            margin-bottom: 24px;
+        }
+
+        .content li {
+            margin-bottom: 8px;
+        }
+
+        .content blockquote {
+            border-left: 2px solid rgba(255,255,255,0.1);
+            padding-left: 20px;
+            color: #888;
+            margin: 24px 0;
+        }
+
+        .content blockquote p:last-child {
+            margin-bottom: 0;
+        }
+
+        .content a {
+            color: #bbb;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+        .content a:hover { color: #fff; }
+
+        .content img {
+            max-width: 100%;
+            border-radius: 8px;
+            margin: 24px 0;
+        }
+
+        .tender-tail {
+            margin-top: 56px;
+            padding: 28px 0 0;
+            border-top: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .tender-tail p {
+            font-size: 15px;
+            color: #777;
+            line-height: 1.8;
+            margin-bottom: 0;
+        }
+
+        .tender-tail em {
+            color: #999;
+            border: none;
+        }
+
+        .footer {
+            text-align: center;
+            font-size: 12px;
+            color: #3a3a3a;
+            padding: 32px 0 48px;
+        }
+
+        .footer a {
+            color: #555;
+            text-decoration: none;
+        }
+        .footer a:hover { color: #888; }
+    </style>
+</head>
+<body>
+    <a class="back-home" href="/">← coolfact.me</a>
+
+    <article>
+        <div class="post-date">{{ page.date | date: "%Y.%m.%d" }}</div>
+        <h1>{{ page.title }}</h1>
+
+        <div class="content">
+            {{ content }}
+        </div>
+
+        {% if page.tender_tail %}
+        <div class="tender-tail">
+            <p>{{ page.tender_tail }}</p>
+        </div>
+        {% endif %}
+    </article>
+
+    <div class="footer">
+        <a href="/">← 返回首页</a>
+    </div>
+</body>
+</html>
